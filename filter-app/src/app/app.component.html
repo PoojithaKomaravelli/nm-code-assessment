@@ -1,0 +1,16 @@
+<div class="card-container">
+	<label>Search : </label> 
+	<input auto-complete class="search-bar" 
+		[(ngModel)]="selectedCategory" placeholder="enter text"
+		[source]="categories" (ngModelChange)="filterCategories()" />
+
+	<div>
+		<br />
+	</div>
+	<div *ngIf="showGroups" class="search-results">
+		<label class="card">Examples of {{selectedCategory}} : </label>
+		<div *ngFor="let example of examples">
+			{{example}}</div>
+	</div>
+	<div *ngIf="showNoData">Unfortunately, no results were found</div>
+</div>
