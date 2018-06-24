@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 
 
 
-export interface Template {
+export interface Entry {
     API: string;
     Description: string;
     Auth: string;
@@ -17,20 +17,21 @@ export interface Template {
 
 export interface Response {
     count: number;
-    entries : Template[];    
+    entries : Entry[];    
 }
 
 @Injectable()
 export class FilterService {
-    private baseUrl ='https://api.publicapis.org/';
+    private baseUrl ='http://localhost:8080/api/';
 
     constructor(private http: HttpClient){}
     
-    getExamplesByCategory(category: string) :Observable<Response>{
+    getSearchResultsByCategory(category: string) :Observable<Response>{
         return this.http.get(this.baseUrl+'entries?category='+category).map(
         (res) => res as Response
-            );
-        }
+            );}
+        
+        
    getCategories() : Observable<string[]> {
     return this.http.get(this.baseUrl+'categories').map((res) => res as string[]);
     }

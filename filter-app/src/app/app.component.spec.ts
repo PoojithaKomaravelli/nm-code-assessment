@@ -11,52 +11,52 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map'
 
 
-class MockFilterService{
-    private baseUrl ='https://api.publicapis.org/';
-     getExamplesByCategory(category: string) :Observable<Response>{
+class MockFilterService {
+    private baseUrl = 'https://api.publicapis.org/';
+    getExamplesByCategory(category: string): Observable<Response> {
         return Observable.of(null);
-        }
-   getCategories() : Observable<string[]> {
-    return Observable.of(["Books","Authors"]);
     }
-    
+    getCategories(): Observable<string[]> {
+        return Observable.of(["Books", "Authors"]);
+    }
+
 }
 describe('AppComponent', () => {
     let appComponent: AppComponent;
-    let filterService : MockFilterService;
+    let filterService: MockFilterService;
     let fixture: ComponentFixture<AppComponent>;
-        
+
     beforeEach(() => {
-  TestBed.configureTestingModule({
-    declarations: [
-      AppComponent
-    ], imports: [
-        Ng2AutoCompleteModule,
-        FormsModule,
-        BrowserModule,
-        HttpClientModule
-    ],
-    providers: [
-      {provide: FilterService, useClass: MockFilterService}
-    ]
-  });
-  appComponent = TestBed.createComponent(AppComponent).componentInstance;
-  filterService = TestBed.get(FilterService);
-});
+        TestBed.configureTestingModule({
+            declarations: [
+                AppComponent
+            ], imports: [
+                Ng2AutoCompleteModule,
+                FormsModule,
+                BrowserModule,
+                HttpClientModule
+            ],
+            providers: [
+                { provide: FilterService, useClass: MockFilterService }
+            ]
+        });
+        appComponent = TestBed.createComponent(AppComponent).componentInstance;
+        filterService = TestBed.get(FilterService);
+    });
 
 
-  it('should create the app', ()=> {
-    expect(appComponent).toBeTruthy();
-  });
+    it('should create the app', () => {
+        expect(appComponent).toBeTruthy();
+    });
 
-    it('should not show group data on load', ()=> {
-           appComponent.categories = ["Animals","Books"];
+    it('should not show group data on load', () => {
+        appComponent.categories = ["Animals", "Books"];
         appComponent.selectedCategory = 'Books';
-           appComponent.ngOnInit();
+        appComponent.ngOnInit();
         appComponent.filterCategories();
-    expect(appComponent.showNoData).toEqual(false);
-  });
+        expect(appComponent.showNoData).toEqual(false);
+    });
 
- 
+
 });
 

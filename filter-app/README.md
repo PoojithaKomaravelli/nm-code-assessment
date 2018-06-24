@@ -1,6 +1,6 @@
 # FilterApp
 
-This project was initially generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
+This project was initially generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2. The app helps the user to quickly choose from  available options i.e, it helps even lamen user to search using category list auto populated on click of the input field. Based on user selection examples of selected category are shown below the input field 
 
 # Angular CLI goodies
 

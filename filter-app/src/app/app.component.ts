@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterService, Template } from  './services/filter.service';
+import { FilterService, Entry } from  './services/filter.service';
 import {HttpClient} from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     public showGroups: boolean = false;
     public showNoData: boolean = false;
 
-    public examples: string[] = [];
+    public searchResults: string[] = [];
     constructor(private service: FilterService) {
 
     }
@@ -29,16 +29,16 @@ export class AppComponent implements OnInit {
 
     filterCategories() {
 
-        this.examples = [];
+        this.searchResults = [];
         if (this.selectedCategory != 'Select' && this.categories.indexOf(this.selectedCategory) >= 0) {
 
-            this.service.getExamplesByCategory(this.selectedCategory).subscribe(
+            this.service.getSearchResultsByCategory(this.selectedCategory).subscribe(
                 (data) => {
                     this.showGroups = true;
                     this.showNoData = false;
                     data.entries.
-                        forEach((element) => { this.examples.push(element.API); })
-                    this.examples.sort();
+                        forEach((element) => { this.searchResults.push(element.API); })
+                    this.searchResults.sort();
                 },
                 (err) => {
                     this.showNoData = true;

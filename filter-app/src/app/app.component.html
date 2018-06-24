@@ -1,16 +1,17 @@
+<h1>Welcome to Search App</h1>
 <div class="card-container">
-	<label>Search : </label> 
+	<label>Category Name : </label> 
 	<input auto-complete class="search-bar" 
-		[(ngModel)]="selectedCategory" placeholder="enter text"
+		[(ngModel)]="selectedCategory" placeholder="enter search category"
 		[source]="categories" (ngModelChange)="filterCategories()" />
 
 	<div>
 		<br />
 	</div>
 	<div *ngIf="showGroups" class="search-results">
-		<label class="card">Examples of {{selectedCategory}} : </label>
-		<div *ngFor="let example of examples">
-			{{example}}</div>
+		<h3>Search results for {{selectedCategory}} : </h3>
+		<div *ngFor="let searchResult of searchResults">
+			{{searchResult}}</div>
 	</div>
 	<div *ngIf="showNoData">Unfortunately, no results were found</div>
 </div>
