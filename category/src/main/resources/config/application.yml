@@ -1,0 +1,8 @@
+spring:
+    main:
+        show-banner: false
+        banner-mode: "off"
+
+
+nwm:
+    base-url: https://api.publicapis.org
