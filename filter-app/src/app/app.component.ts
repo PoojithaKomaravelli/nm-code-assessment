@@ -9,7 +9,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    providers: [FilterService, HttpClient]
+    providers: [FilterService, HttpClient],
+    
 })
 export class AppComponent implements OnInit {
     public categories: string[];
@@ -48,6 +49,7 @@ export class AppComponent implements OnInit {
 
         } else {
             this.showGroups = false;
+
         }
 
 

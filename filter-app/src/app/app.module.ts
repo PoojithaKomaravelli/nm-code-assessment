@@ -5,11 +5,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
+import { FilterService } from  './services/filter.service';
+import { CapitalizePipe  } from  './shared/capitalize-pipe';
+
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        CapitalizePipe
     ],
 
     imports: [
@@ -18,7 +22,7 @@ import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
         BrowserModule,
         HttpClientModule
     ],
-    providers: [],
+    providers: [FilterService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,9 +9,13 @@
 		<br />
 	</div>
 	<div *ngIf="showGroups" class="search-results">
-		<h3>Search results for {{selectedCategory}} : </h3>
+		<label>Search results for {{selectedCategory}}: </label>
+		<ol class="result">
 		<div *ngFor="let searchResult of searchResults">
-			{{searchResult}}</div>
+		<li type="Disc"> {{searchResult | capitalizeFirst}}</li>
+			</div>
+			</ol>
 	</div>
-	<div *ngIf="showNoData">Unfortunately, no results were found</div>
+	
+	<div *ngIf="showNoData" class="error">Unfortunately, no results were found</div>
 </div>
