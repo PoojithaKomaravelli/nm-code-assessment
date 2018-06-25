@@ -1,6 +1,12 @@
 # FilterApp
 
-This project was initially generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2. The app helps the user to quickly choose from  available options i.e, it helps even lamen user to search using category list auto populated on click of the input field. Based on user selection examples of selected category are shown below the input field 
+This project was initially generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2. The app helps the user to quickly choose from  available options. Here are few features of the app :
+On load of the page , user will see a search input field. 
+On click of the input field, he will see a list of options available to select/filter .
+As the user gives the input, suggestions are populated in alphabetical order.
+On successful selection of category , search results  are populated to the user in alphabetical order with first letter of each Search result capitalized.
+If the API used to fetch the data for selected category doesnt give a positive response user will see message :  “Unfortunately no results were found. Please try after sometime”.
+
 
 # Angular CLI goodies
 
