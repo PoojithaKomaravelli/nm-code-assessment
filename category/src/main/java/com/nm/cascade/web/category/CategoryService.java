@@ -8,6 +8,7 @@ import java.util.List;
 public interface CategoryService {
 	
 	List<String> getCategories();
+
 	CategoryList getSearchResultsForSelectedCategory(String category);
 	
 	
