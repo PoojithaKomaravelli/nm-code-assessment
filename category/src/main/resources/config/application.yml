@@ -2,7 +2,11 @@ spring:
     main:
         show-banner: false
         banner-mode: "off"
+    cache:
+        ehcache:
+          config: classpath:ehcache.xml
 
 
 nwm:
     base-url: https://api.publicapis.org
+
