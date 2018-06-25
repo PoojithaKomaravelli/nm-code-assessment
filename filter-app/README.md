@@ -1,6 +1,6 @@
 # FilterApp
 
-This project was initially generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2. The app helps the user to quickly choose from  available options. Here are few features of the app :
+This project was initially generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2. The app helps the user to quickly choose from  available options. Here are few features of the responsive app :
 On load of the page , user will see a search input field. 
 On click of the input field, he will see a list of options available to select/filter .
 As the user gives the input, suggestions are populated in alphabetical order.

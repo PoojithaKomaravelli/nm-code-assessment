@@ -10,7 +10,7 @@
 	</div>
 	<div *ngIf="showGroups" class="search-results">
 		<label>Search results for {{selectedCategory}}: </label>
-		<ol class="result">
+		<ol>
 		<div *ngFor="let searchResult of searchResults">
 		<li type="Disc"> {{searchResult | capitalizeFirst}}</li>
 			</div>
