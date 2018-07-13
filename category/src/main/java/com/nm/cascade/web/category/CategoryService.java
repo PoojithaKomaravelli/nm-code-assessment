@@ -10,7 +10,7 @@ public interface CategoryService {
 	List<String> getCategories();
 
 	CategoryList getSearchResultsForSelectedCategory(String category);
-	
-	
 
+
+	void  saveData();
 }

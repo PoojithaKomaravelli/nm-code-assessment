@@ -1,6 +1,12 @@
 package com.nm.cascade.web.category;
 
+import com.nm.cascade.web.category.models.AnswerDetails;
 import com.nm.cascade.web.category.models.CategoryList;
+import com.nm.cascade.web.category.models.QuestionAnswerDetails;
+import com.nm.cascade.web.category.models.QuestionarrieDetails;
+import com.nm.cascade.web.category.repository.AnswerDetailsRepository;
+import com.nm.cascade.web.category.repository.QuestionAnswerRepository;
+import com.nm.cascade.web.category.repository.QuestionnarieRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,6 +28,15 @@ public class CategoryServiceImpl  implements CategoryService{
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private QuestionAnswerRepository questionAnswerRepository;
+
+    @Autowired
+    private AnswerDetailsRepository answerDetailsRepository;
+
+    @Autowired
+    private QuestionnarieRepository questionnarieRepository;
+
     @Cacheable(cacheNames = "categories", unless = "#result == null")
     @Override
     public List<String> getCategories() {
@@ -42,5 +57,12 @@ public class CategoryServiceImpl  implements CategoryService{
                 .build();
         ResponseEntity<CategoryList> searchResults  = restTemplate.exchange(requestEntity,CategoryList.class);
         return searchResults.getBody();
+    }
+
+    @Override
+    public void  saveData() {
+        questionAnswerRepository.save(QuestionAnswerDetails.builder().questionAnswerRelId("123").build());
+        questionnarieRepository.save(QuestionarrieDetails.builder().questionnaireIdNum("123").build());
+        answerDetailsRepository.save(AnswerDetails.builder().answerIdNum("123").build());
     }
 }

@@ -42,4 +42,14 @@ public class CategoryController {
         return new ResponseEntity<CategoryList>(categoryExamples, HttpStatus.OK);
     }
 
+    @ApiOperation(value = "save Data")
+    @RequestMapping(method = RequestMethod.POST, path = "/entries")
+    public HttpEntity<?> saveData() {
+         service.saveData();
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .build();
+    }
+
 }
